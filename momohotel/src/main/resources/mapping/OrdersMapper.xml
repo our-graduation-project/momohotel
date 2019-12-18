@@ -6,6 +6,7 @@
     <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
     <result column="hotele_id" jdbcType="INTEGER" property="hoteleId" />
     <result column="hotel_name" jdbcType="VARCHAR" property="hotelName" />
+    <result column="room_name" jdbcType="VARCHAR" property="roomName" />
     <result column="room_number" jdbcType="VARCHAR" property="roomNumber" />
     <result column="earnest" jdbcType="DOUBLE" property="earnest" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -78,9 +79,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    order_id, order_no, hotele_id, hotel_name, room_number, earnest, user_name, user_phine, 
-    user_sex, checkin_code, order_time, checkin_time, complete_time, roder_state, remark1, 
-    remark2
+    order_id, order_no, hotele_id, hotel_name, room_name, room_number, earnest, user_name, 
+    user_phine, user_sex, checkin_code, order_time, checkin_time, complete_time, roder_state, 
+    remark1, remark2
   </sql>
   <select id="selectByExample" parameterType="com.xqr.momohotel.model.OrdersExample" resultMap="BaseResultMap">
     select
@@ -117,17 +118,17 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into orders (order_no, hotele_id, hotel_name, 
-      room_number, earnest, user_name, 
-      user_phine, user_sex, checkin_code, 
-      order_time, checkin_time, complete_time, 
-      roder_state, remark1, remark2
-      )
+      room_name, room_number, earnest, 
+      user_name, user_phine, user_sex, 
+      checkin_code, order_time, checkin_time, 
+      complete_time, roder_state, remark1, 
+      remark2)
     values (#{orderNo,jdbcType=VARCHAR}, #{hoteleId,jdbcType=INTEGER}, #{hotelName,jdbcType=VARCHAR}, 
-      #{roomNumber,jdbcType=VARCHAR}, #{earnest,jdbcType=DOUBLE}, #{userName,jdbcType=VARCHAR}, 
-      #{userPhine,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{checkinCode,jdbcType=VARCHAR}, 
-      #{orderTime,jdbcType=TIMESTAMP}, #{checkinTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}, 
-      #{roderState,jdbcType=INTEGER}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
-      )
+      #{roomName,jdbcType=VARCHAR}, #{roomNumber,jdbcType=VARCHAR}, #{earnest,jdbcType=DOUBLE}, 
+      #{userName,jdbcType=VARCHAR}, #{userPhine,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
+      #{checkinCode,jdbcType=VARCHAR}, #{orderTime,jdbcType=TIMESTAMP}, #{checkinTime,jdbcType=TIMESTAMP}, 
+      #{completeTime,jdbcType=TIMESTAMP}, #{roderState,jdbcType=INTEGER}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.Orders">
     <selectKey keyProperty="orderId" order="AFTER" resultType="java.lang.Integer">
@@ -143,6 +144,9 @@
       </if>
       <if test="hotelName != null">
         hotel_name,
+      </if>
+      <if test="roomName != null">
+        room_name,
       </if>
       <if test="roomNumber != null">
         room_number,
@@ -190,6 +194,9 @@
       </if>
       <if test="hotelName != null">
         #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null">
+        #{roomName,jdbcType=VARCHAR},
       </if>
       <if test="roomNumber != null">
         #{roomNumber,jdbcType=VARCHAR},
@@ -250,6 +257,9 @@
       <if test="record.hotelName != null">
         hotel_name = #{record.hotelName,jdbcType=VARCHAR},
       </if>
+      <if test="record.roomName != null">
+        room_name = #{record.roomName,jdbcType=VARCHAR},
+      </if>
       <if test="record.roomNumber != null">
         room_number = #{record.roomNumber,jdbcType=VARCHAR},
       </if>
@@ -297,6 +307,7 @@
       order_no = #{record.orderNo,jdbcType=VARCHAR},
       hotele_id = #{record.hoteleId,jdbcType=INTEGER},
       hotel_name = #{record.hotelName,jdbcType=VARCHAR},
+      room_name = #{record.roomName,jdbcType=VARCHAR},
       room_number = #{record.roomNumber,jdbcType=VARCHAR},
       earnest = #{record.earnest,jdbcType=DOUBLE},
       user_name = #{record.userName,jdbcType=VARCHAR},
@@ -324,6 +335,9 @@
       </if>
       <if test="hotelName != null">
         hotel_name = #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomName != null">
+        room_name = #{roomName,jdbcType=VARCHAR},
       </if>
       <if test="roomNumber != null">
         room_number = #{roomNumber,jdbcType=VARCHAR},
@@ -369,6 +383,7 @@
     set order_no = #{orderNo,jdbcType=VARCHAR},
       hotele_id = #{hoteleId,jdbcType=INTEGER},
       hotel_name = #{hotelName,jdbcType=VARCHAR},
+      room_name = #{roomName,jdbcType=VARCHAR},
       room_number = #{roomNumber,jdbcType=VARCHAR},
       earnest = #{earnest,jdbcType=DOUBLE},
       user_name = #{userName,jdbcType=VARCHAR},
