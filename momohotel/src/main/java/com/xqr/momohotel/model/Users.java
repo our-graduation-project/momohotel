@@ -3,6 +3,26 @@ package com.xqr.momohotel.model;
 import java.io.Serializable;
 
 public class Users implements Serializable {
+
+    public Users() {
+    }
+
+    public Users(Integer userId, String userNo, String userName, String userPhone, String remark1, String remark2) {
+        this.userId = userId;
+        this.userNo = userNo;
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.remark1 = remark1;
+        this.remark2 = remark2;
+    }
+
+    public Users(Integer userId, String userNo, String userName, String userPhone) {
+        this.userId = userId;
+        this.userNo = userNo;
+        this.userName = userName;
+        this.userPhone = userPhone;
+    }
+
     private Integer userId;
 
     private String userNo;
