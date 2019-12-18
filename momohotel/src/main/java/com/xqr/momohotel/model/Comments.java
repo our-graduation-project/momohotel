@@ -4,6 +4,32 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Comments implements Serializable {
+
+    public Comments() {
+    }
+
+    public Comments(Integer commentId, String commentNo, String commentData, Integer hoteleId, String userName, String userPhine, Date commentTime, String remark1, String remark2) {
+        this.commentId = commentId;
+        this.commentNo = commentNo;
+        this.commentData = commentData;
+        this.hoteleId = hoteleId;
+        this.userName = userName;
+        this.userPhine = userPhine;
+        this.commentTime = commentTime;
+        this.remark1 = remark1;
+        this.remark2 = remark2;
+    }
+
+    public Comments(Integer commentId, String commentNo, String commentData, Integer hoteleId, String userName, String userPhine, Date commentTime) {
+        this.commentId = commentId;
+        this.commentNo = commentNo;
+        this.commentData = commentData;
+        this.hoteleId = hoteleId;
+        this.userName = userName;
+        this.userPhine = userPhine;
+        this.commentTime = commentTime;
+    }
+
     private Integer commentId;
 
     private String commentNo;
