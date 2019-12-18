@@ -30,4 +30,6 @@ public interface AdminsMapper {
     int updateByPrimaryKeySelective(Admins record);
 
     int updateByPrimaryKey(Admins record);
+
+    int addBatchAdmins( List<Admins> list);//@Param("list")
 }
