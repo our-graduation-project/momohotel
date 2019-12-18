@@ -1,6 +1,7 @@
 package com.xqr.momohotel.confign;
 
-import cn.hnist.bookmanager.utils.LogUtils;
+
+import com.xqr.momohotel.utils.LogUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,8 @@
 package com.xqr.momohotel.component;
 
-import cn.hnist.bookmanager.common.QueueEnum;
+
 import com.alibaba.fastjson.JSONObject;
+import com.xqr.momohotel.common.QueueEnum;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageDeliveryMode;
 import org.springframework.amqp.core.MessageProperties;

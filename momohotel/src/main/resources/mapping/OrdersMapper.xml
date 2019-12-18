@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xqr.momohotel.dao.OrdersMapper">
+  <resultMap id="BaseResultMap" type="com.xqr.momohotel.model.Orders">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="hotele_id" jdbcType="INTEGER" property="hoteleId" />
+    <result column="hotel_name" jdbcType="VARCHAR" property="hotelName" />
+    <result column="room_number" jdbcType="VARCHAR" property="roomNumber" />
+    <result column="earnest" jdbcType="DOUBLE" property="earnest" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_phine" jdbcType="VARCHAR" property="userPhine" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="checkin_code" jdbcType="VARCHAR" property="checkinCode" />
+    <result column="order_time" jdbcType="DATE" property="orderTime" />
+    <result column="checkin_time" jdbcType="DATE" property="checkinTime" />
+    <result column="complete_time" jdbcType="DATE" property="completeTime" />
+    <result column="roder_state" jdbcType="INTEGER" property="roderState" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    order_id, order_no, hotele_id, hotel_name, room_number, earnest, user_name, user_phine, 
+    user_sex, checkin_code, order_time, checkin_time, complete_time, roder_state, remark1, 
+    remark2
+  </sql>
+  <select id="selectByExample" parameterType="com.xqr.momohotel.model.OrdersExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xqr.momohotel.model.OrdersExample">
+    delete from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xqr.momohotel.model.Orders">
+    <selectKey keyProperty="orderId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into orders (order_no, hotele_id, hotel_name, 
+      room_number, earnest, user_name, 
+      user_phine, user_sex, checkin_code, 
+      order_time, checkin_time, complete_time, 
+      roder_state, remark1, remark2
+      )
+    values (#{orderNo,jdbcType=VARCHAR}, #{hoteleId,jdbcType=INTEGER}, #{hotelName,jdbcType=VARCHAR}, 
+      #{roomNumber,jdbcType=VARCHAR}, #{earnest,jdbcType=DOUBLE}, #{userName,jdbcType=VARCHAR}, 
+      #{userPhine,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{checkinCode,jdbcType=VARCHAR}, 
+      #{orderTime,jdbcType=DATE}, #{checkinTime,jdbcType=DATE}, #{completeTime,jdbcType=DATE}, 
+      #{roderState,jdbcType=INTEGER}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xqr.momohotel.model.Orders">
+    <selectKey keyProperty="orderId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="hoteleId != null">
+        hotele_id,
+      </if>
+      <if test="hotelName != null">
+        hotel_name,
+      </if>
+      <if test="roomNumber != null">
+        room_number,
+      </if>
+      <if test="earnest != null">
+        earnest,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPhine != null">
+        user_phine,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="checkinCode != null">
+        checkin_code,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="checkinTime != null">
+        checkin_time,
+      </if>
+      <if test="completeTime != null">
+        complete_time,
+      </if>
+      <if test="roderState != null">
+        roder_state,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hoteleId != null">
+        #{hoteleId,jdbcType=INTEGER},
+      </if>
+      <if test="hotelName != null">
+        #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomNumber != null">
+        #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="earnest != null">
+        #{earnest,jdbcType=DOUBLE},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhine != null">
+        #{userPhine,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="checkinCode != null">
+        #{checkinCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=DATE},
+      </if>
+      <if test="checkinTime != null">
+        #{checkinTime,jdbcType=DATE},
+      </if>
+      <if test="completeTime != null">
+        #{completeTime,jdbcType=DATE},
+      </if>
+      <if test="roderState != null">
+        #{roderState,jdbcType=INTEGER},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xqr.momohotel.model.OrdersExample" resultType="java.lang.Long">
+    select count(*) from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update orders
+    <set>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderNo != null">
+        order_no = #{record.orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hoteleId != null">
+        hotele_id = #{record.hoteleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hotelName != null">
+        hotel_name = #{record.hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomNumber != null">
+        room_number = #{record.roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.earnest != null">
+        earnest = #{record.earnest,jdbcType=DOUBLE},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhine != null">
+        user_phine = #{record.userPhine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        user_sex = #{record.userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkinCode != null">
+        checkin_code = #{record.checkinCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderTime != null">
+        order_time = #{record.orderTime,jdbcType=DATE},
+      </if>
+      <if test="record.checkinTime != null">
+        checkin_time = #{record.checkinTime,jdbcType=DATE},
+      </if>
+      <if test="record.completeTime != null">
+        complete_time = #{record.completeTime,jdbcType=DATE},
+      </if>
+      <if test="record.roderState != null">
+        roder_state = #{record.roderState,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark1 != null">
+        remark1 = #{record.remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark2 != null">
+        remark2 = #{record.remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update orders
+    set order_id = #{record.orderId,jdbcType=INTEGER},
+      order_no = #{record.orderNo,jdbcType=VARCHAR},
+      hotele_id = #{record.hoteleId,jdbcType=INTEGER},
+      hotel_name = #{record.hotelName,jdbcType=VARCHAR},
+      room_number = #{record.roomNumber,jdbcType=VARCHAR},
+      earnest = #{record.earnest,jdbcType=DOUBLE},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_phine = #{record.userPhine,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=VARCHAR},
+      checkin_code = #{record.checkinCode,jdbcType=VARCHAR},
+      order_time = #{record.orderTime,jdbcType=DATE},
+      checkin_time = #{record.checkinTime,jdbcType=DATE},
+      complete_time = #{record.completeTime,jdbcType=DATE},
+      roder_state = #{record.roderState,jdbcType=INTEGER},
+      remark1 = #{record.remark1,jdbcType=VARCHAR},
+      remark2 = #{record.remark2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xqr.momohotel.model.Orders">
+    update orders
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hoteleId != null">
+        hotele_id = #{hoteleId,jdbcType=INTEGER},
+      </if>
+      <if test="hotelName != null">
+        hotel_name = #{hotelName,jdbcType=VARCHAR},
+      </if>
+      <if test="roomNumber != null">
+        room_number = #{roomNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="earnest != null">
+        earnest = #{earnest,jdbcType=DOUBLE},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhine != null">
+        user_phine = #{userPhine,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="checkinCode != null">
+        checkin_code = #{checkinCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=DATE},
+      </if>
+      <if test="checkinTime != null">
+        checkin_time = #{checkinTime,jdbcType=DATE},
+      </if>
+      <if test="completeTime != null">
+        complete_time = #{completeTime,jdbcType=DATE},
+      </if>
+      <if test="roderState != null">
+        roder_state = #{roderState,jdbcType=INTEGER},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xqr.momohotel.model.Orders">
+    update orders
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      hotele_id = #{hoteleId,jdbcType=INTEGER},
+      hotel_name = #{hotelName,jdbcType=VARCHAR},
+      room_number = #{roomNumber,jdbcType=VARCHAR},
+      earnest = #{earnest,jdbcType=DOUBLE},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_phine = #{userPhine,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      checkin_code = #{checkinCode,jdbcType=VARCHAR},
+      order_time = #{orderTime,jdbcType=DATE},
+      checkin_time = #{checkinTime,jdbcType=DATE},
+      complete_time = #{completeTime,jdbcType=DATE},
+      roder_state = #{roderState,jdbcType=INTEGER},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

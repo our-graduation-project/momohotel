@@ -1,6 +1,7 @@
 package com.xqr.momohotel.component;
 
-import cn.hnist.bookmanager.utils.LogUtils;
+
+import com.xqr.momohotel.utils.LogUtils;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;

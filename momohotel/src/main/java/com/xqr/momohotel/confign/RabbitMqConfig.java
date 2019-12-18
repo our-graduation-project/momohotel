@@ -1,6 +1,7 @@
 package com.xqr.momohotel.confign;
 
-import cn.hnist.bookmanager.common.QueueEnum;
+
+import com.xqr.momohotel.common.QueueEnum;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

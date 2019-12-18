@@ -1,6 +1,7 @@
 package com.xqr.momohotel.utils;
 
-import cn.hnist.bookmanager.common.LogEnum;
+
+import com.xqr.momohotel.common.LogEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

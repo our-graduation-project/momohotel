@@ -1,9 +1,9 @@
 package com.xqr.momohotel.component;
 
-import cn.hnist.bookmanager.utils.LogUtils;
-import cn.hnist.bookmanager.utils.SendMail;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.xqr.momohotel.utils.LogUtils;
+import com.xqr.momohotel.utils.SendMail;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
