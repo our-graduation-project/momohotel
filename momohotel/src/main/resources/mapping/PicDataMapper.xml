@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.xqr.momohotel.model.PicData">
     <id column="pic_id" jdbcType="INTEGER" property="picId" />
     <result column="pic_address" jdbcType="VARCHAR" property="picAddress" />
-    <result column="pic_time" jdbcType="DATE" property="picTime" />
+    <result column="pic_time" jdbcType="TIMESTAMP" property="picTime" />
     <result column="individual_no" jdbcType="VARCHAR" property="individualNo" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
     <result column="remark2" jdbcType="VARCHAR" property="remark2" />
@@ -106,7 +106,7 @@
     </selectKey>
     insert into pic_data (pic_address, pic_time, individual_no, 
       remark1, remark2)
-    values (#{picAddress,jdbcType=VARCHAR}, #{picTime,jdbcType=DATE}, #{individualNo,jdbcType=VARCHAR}, 
+    values (#{picAddress,jdbcType=VARCHAR}, #{picTime,jdbcType=TIMESTAMP}, #{individualNo,jdbcType=VARCHAR}, 
       #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.PicData">
@@ -136,7 +136,7 @@
         #{picAddress,jdbcType=VARCHAR},
       </if>
       <if test="picTime != null">
-        #{picTime,jdbcType=DATE},
+        #{picTime,jdbcType=TIMESTAMP},
       </if>
       <if test="individualNo != null">
         #{individualNo,jdbcType=VARCHAR},
@@ -165,7 +165,7 @@
         pic_address = #{record.picAddress,jdbcType=VARCHAR},
       </if>
       <if test="record.picTime != null">
-        pic_time = #{record.picTime,jdbcType=DATE},
+        pic_time = #{record.picTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.individualNo != null">
         individual_no = #{record.individualNo,jdbcType=VARCHAR},
@@ -185,7 +185,7 @@
     update pic_data
     set pic_id = #{record.picId,jdbcType=INTEGER},
       pic_address = #{record.picAddress,jdbcType=VARCHAR},
-      pic_time = #{record.picTime,jdbcType=DATE},
+      pic_time = #{record.picTime,jdbcType=TIMESTAMP},
       individual_no = #{record.individualNo,jdbcType=VARCHAR},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
@@ -200,7 +200,7 @@
         pic_address = #{picAddress,jdbcType=VARCHAR},
       </if>
       <if test="picTime != null">
-        pic_time = #{picTime,jdbcType=DATE},
+        pic_time = #{picTime,jdbcType=TIMESTAMP},
       </if>
       <if test="individualNo != null">
         individual_no = #{individualNo,jdbcType=VARCHAR},
@@ -217,7 +217,7 @@
   <update id="updateByPrimaryKey" parameterType="com.xqr.momohotel.model.PicData">
     update pic_data
     set pic_address = #{picAddress,jdbcType=VARCHAR},
-      pic_time = #{picTime,jdbcType=DATE},
+      pic_time = #{picTime,jdbcType=TIMESTAMP},
       individual_no = #{individualNo,jdbcType=VARCHAR},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR}

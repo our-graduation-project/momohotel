@@ -20,10 +20,10 @@ public class TestService {
 
     public int addAdmin(){
         Admins admins = new Admins();
-        admins.setAdminName("sss");
-        admins.setAdminNo("222");
+        admins.setAdminName("ssss");
+        admins.setAdminNo("242");
         admins.setAdminPassword("aaaa");
-        admins.setAdminPhone("323452");
+        admins.setAdminPhone("323438452");
         admins.setHoteleId(12);
         int i = adminsMapper.insert(admins);
         return i;

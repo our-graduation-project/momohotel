@@ -1,6 +1,7 @@
 package com.xqr.momohotel.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PaymentsExample {
@@ -411,6 +412,66 @@ public class PaymentsExample {
 
         public Criteria andHoteleIdNotBetween(Integer value1, Integer value2) {
             addCriterion("hotele_id not between", value1, value2, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeIsNull() {
+            addCriterion("payment_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeIsNotNull() {
+            addCriterion("payment_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeEqualTo(Date value) {
+            addCriterion("payment_time =", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeNotEqualTo(Date value) {
+            addCriterion("payment_time <>", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeGreaterThan(Date value) {
+            addCriterion("payment_time >", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("payment_time >=", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeLessThan(Date value) {
+            addCriterion("payment_time <", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeLessThanOrEqualTo(Date value) {
+            addCriterion("payment_time <=", value, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeIn(List<Date> values) {
+            addCriterion("payment_time in", values, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeNotIn(List<Date> values) {
+            addCriterion("payment_time not in", values, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeBetween(Date value1, Date value2) {
+            addCriterion("payment_time between", value1, value2, "paymentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPaymentTimeNotBetween(Date value1, Date value2) {
+            addCriterion("payment_time not between", value1, value2, "paymentTime");
             return (Criteria) this;
         }
 

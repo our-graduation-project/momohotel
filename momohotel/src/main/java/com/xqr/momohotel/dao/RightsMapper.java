@@ -3,11 +3,10 @@ package com.xqr.momohotel.dao;
 
 import com.xqr.momohotel.model.Rights;
 import com.xqr.momohotel.model.RightsExample;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-@Mapper
+
 public interface RightsMapper {
     long countByExample(RightsExample example);
 

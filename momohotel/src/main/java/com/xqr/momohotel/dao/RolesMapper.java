@@ -1,5 +1,6 @@
 package com.xqr.momohotel.dao;
 
+
 import com.xqr.momohotel.model.Roles;
 import com.xqr.momohotel.model.RolesExample;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,6 +1,7 @@
 package com.xqr.momohotel.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Payments implements Serializable {
     private Integer paymentId;
@@ -12,6 +13,8 @@ public class Payments implements Serializable {
     private Integer orderId;
 
     private Integer hoteleId;
+
+    private Date paymentTime;
 
     private String remark1;
 
@@ -59,6 +62,14 @@ public class Payments implements Serializable {
         this.hoteleId = hoteleId;
     }
 
+    public Date getPaymentTime() {
+        return paymentTime;
+    }
+
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
+    }
+
     public String getRemark1() {
         return remark1;
     }
@@ -86,6 +97,7 @@ public class Payments implements Serializable {
         sb.append(", earnest=").append(earnest);
         sb.append(", orderId=").append(orderId);
         sb.append(", hoteleId=").append(hoteleId);
+        sb.append(", paymentTime=").append(paymentTime);
         sb.append(", remark1=").append(remark1);
         sb.append(", remark2=").append(remark2);
         sb.append(", serialVersionUID=").append(serialVersionUID);

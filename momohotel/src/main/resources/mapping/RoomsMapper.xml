@@ -21,7 +21,7 @@
     <result column="big_bed" jdbcType="INTEGER" property="bigBed" />
     <result column="room_num" jdbcType="INTEGER" property="roomNum" />
     <result column="free_room" jdbcType="INTEGER" property="freeRoom" />
-    <result column="room_time" jdbcType="DATE" property="roomTime" />
+    <result column="room_time" jdbcType="TIMESTAMP" property="roomTime" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
     <result column="remark2" jdbcType="VARCHAR" property="remark2" />
   </resultMap>
@@ -136,7 +136,7 @@
       #{bedNumber,jdbcType=INTEGER}, #{peopleNum,jdbcType=INTEGER}, #{roomArea,jdbcType=DOUBLE}, 
       #{breakfast,jdbcType=INTEGER}, #{wifi,jdbcType=INTEGER}, #{roomWindow,jdbcType=INTEGER}, 
       #{bigBed,jdbcType=INTEGER}, #{roomNum,jdbcType=INTEGER}, #{freeRoom,jdbcType=INTEGER}, 
-      #{roomTime,jdbcType=DATE}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
+      #{roomTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.Rooms">
@@ -265,7 +265,7 @@
         #{freeRoom,jdbcType=INTEGER},
       </if>
       <if test="roomTime != null">
-        #{roomTime,jdbcType=DATE},
+        #{roomTime,jdbcType=TIMESTAMP},
       </if>
       <if test="remark1 != null">
         #{remark1,jdbcType=VARCHAR},
@@ -342,7 +342,7 @@
         free_room = #{record.freeRoom,jdbcType=INTEGER},
       </if>
       <if test="record.roomTime != null">
-        room_time = #{record.roomTime,jdbcType=DATE},
+        room_time = #{record.roomTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.remark1 != null">
         remark1 = #{record.remark1,jdbcType=VARCHAR},
@@ -376,7 +376,7 @@
       big_bed = #{record.bigBed,jdbcType=INTEGER},
       room_num = #{record.roomNum,jdbcType=INTEGER},
       free_room = #{record.freeRoom,jdbcType=INTEGER},
-      room_time = #{record.roomTime,jdbcType=DATE},
+      room_time = #{record.roomTime,jdbcType=TIMESTAMP},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -441,7 +441,7 @@
         free_room = #{freeRoom,jdbcType=INTEGER},
       </if>
       <if test="roomTime != null">
-        room_time = #{roomTime,jdbcType=DATE},
+        room_time = #{roomTime,jdbcType=TIMESTAMP},
       </if>
       <if test="remark1 != null">
         remark1 = #{remark1,jdbcType=VARCHAR},
@@ -472,7 +472,7 @@
       big_bed = #{bigBed,jdbcType=INTEGER},
       room_num = #{roomNum,jdbcType=INTEGER},
       free_room = #{freeRoom,jdbcType=INTEGER},
-      room_time = #{roomTime,jdbcType=DATE},
+      room_time = #{roomTime,jdbcType=TIMESTAMP},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR}
     where room_id = #{roomId,jdbcType=INTEGER}

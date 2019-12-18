@@ -1,5 +1,6 @@
 package com.xqr.momohotel.dao;
 
+
 import com.xqr.momohotel.model.Payments;
 import com.xqr.momohotel.model.PaymentsExample;
 import org.apache.ibatis.annotations.Mapper;

@@ -8,7 +8,7 @@
     <result column="hotele_id" jdbcType="INTEGER" property="hoteleId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_phine" jdbcType="VARCHAR" property="userPhine" />
-    <result column="comment_time" jdbcType="DATE" property="commentTime" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
     <result column="remark2" jdbcType="VARCHAR" property="remark2" />
   </resultMap>
@@ -112,7 +112,7 @@
       user_name, user_phine, comment_time, 
       remark1, remark2)
     values (#{commentNo,jdbcType=VARCHAR}, #{commentData,jdbcType=VARCHAR}, #{hoteleId,jdbcType=INTEGER}, 
-      #{userName,jdbcType=VARCHAR}, #{userPhine,jdbcType=VARCHAR}, #{commentTime,jdbcType=DATE}, 
+      #{userName,jdbcType=VARCHAR}, #{userPhine,jdbcType=VARCHAR}, #{commentTime,jdbcType=TIMESTAMP}, 
       #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.Comments">
@@ -163,7 +163,7 @@
         #{userPhine,jdbcType=VARCHAR},
       </if>
       <if test="commentTime != null">
-        #{commentTime,jdbcType=DATE},
+        #{commentTime,jdbcType=TIMESTAMP},
       </if>
       <if test="remark1 != null">
         #{remark1,jdbcType=VARCHAR},
@@ -201,7 +201,7 @@
         user_phine = #{record.userPhine,jdbcType=VARCHAR},
       </if>
       <if test="record.commentTime != null">
-        comment_time = #{record.commentTime,jdbcType=DATE},
+        comment_time = #{record.commentTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.remark1 != null">
         remark1 = #{record.remark1,jdbcType=VARCHAR},
@@ -222,7 +222,7 @@
       hotele_id = #{record.hoteleId,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_phine = #{record.userPhine,jdbcType=VARCHAR},
-      comment_time = #{record.commentTime,jdbcType=DATE},
+      comment_time = #{record.commentTime,jdbcType=TIMESTAMP},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -248,7 +248,7 @@
         user_phine = #{userPhine,jdbcType=VARCHAR},
       </if>
       <if test="commentTime != null">
-        comment_time = #{commentTime,jdbcType=DATE},
+        comment_time = #{commentTime,jdbcType=TIMESTAMP},
       </if>
       <if test="remark1 != null">
         remark1 = #{remark1,jdbcType=VARCHAR},
@@ -266,7 +266,7 @@
       hotele_id = #{hoteleId,jdbcType=INTEGER},
       user_name = #{userName,jdbcType=VARCHAR},
       user_phine = #{userPhine,jdbcType=VARCHAR},
-      comment_time = #{commentTime,jdbcType=DATE},
+      comment_time = #{commentTime,jdbcType=TIMESTAMP},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR}
     where comment_id = #{commentId,jdbcType=INTEGER}

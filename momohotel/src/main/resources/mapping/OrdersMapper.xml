@@ -12,9 +12,9 @@
     <result column="user_phine" jdbcType="VARCHAR" property="userPhine" />
     <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
     <result column="checkin_code" jdbcType="VARCHAR" property="checkinCode" />
-    <result column="order_time" jdbcType="DATE" property="orderTime" />
-    <result column="checkin_time" jdbcType="DATE" property="checkinTime" />
-    <result column="complete_time" jdbcType="DATE" property="completeTime" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="checkin_time" jdbcType="TIMESTAMP" property="checkinTime" />
+    <result column="complete_time" jdbcType="TIMESTAMP" property="completeTime" />
     <result column="roder_state" jdbcType="INTEGER" property="roderState" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
     <result column="remark2" jdbcType="VARCHAR" property="remark2" />
@@ -125,7 +125,7 @@
     values (#{orderNo,jdbcType=VARCHAR}, #{hoteleId,jdbcType=INTEGER}, #{hotelName,jdbcType=VARCHAR}, 
       #{roomNumber,jdbcType=VARCHAR}, #{earnest,jdbcType=DOUBLE}, #{userName,jdbcType=VARCHAR}, 
       #{userPhine,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{checkinCode,jdbcType=VARCHAR}, 
-      #{orderTime,jdbcType=DATE}, #{checkinTime,jdbcType=DATE}, #{completeTime,jdbcType=DATE}, 
+      #{orderTime,jdbcType=TIMESTAMP}, #{checkinTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}, 
       #{roderState,jdbcType=INTEGER}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
       )
   </insert>
@@ -210,13 +210,13 @@
         #{checkinCode,jdbcType=VARCHAR},
       </if>
       <if test="orderTime != null">
-        #{orderTime,jdbcType=DATE},
+        #{orderTime,jdbcType=TIMESTAMP},
       </if>
       <if test="checkinTime != null">
-        #{checkinTime,jdbcType=DATE},
+        #{checkinTime,jdbcType=TIMESTAMP},
       </if>
       <if test="completeTime != null">
-        #{completeTime,jdbcType=DATE},
+        #{completeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="roderState != null">
         #{roderState,jdbcType=INTEGER},
@@ -269,13 +269,13 @@
         checkin_code = #{record.checkinCode,jdbcType=VARCHAR},
       </if>
       <if test="record.orderTime != null">
-        order_time = #{record.orderTime,jdbcType=DATE},
+        order_time = #{record.orderTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.checkinTime != null">
-        checkin_time = #{record.checkinTime,jdbcType=DATE},
+        checkin_time = #{record.checkinTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.completeTime != null">
-        complete_time = #{record.completeTime,jdbcType=DATE},
+        complete_time = #{record.completeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.roderState != null">
         roder_state = #{record.roderState,jdbcType=INTEGER},
@@ -303,9 +303,9 @@
       user_phine = #{record.userPhine,jdbcType=VARCHAR},
       user_sex = #{record.userSex,jdbcType=VARCHAR},
       checkin_code = #{record.checkinCode,jdbcType=VARCHAR},
-      order_time = #{record.orderTime,jdbcType=DATE},
-      checkin_time = #{record.checkinTime,jdbcType=DATE},
-      complete_time = #{record.completeTime,jdbcType=DATE},
+      order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      checkin_time = #{record.checkinTime,jdbcType=TIMESTAMP},
+      complete_time = #{record.completeTime,jdbcType=TIMESTAMP},
       roder_state = #{record.roderState,jdbcType=INTEGER},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
@@ -344,13 +344,13 @@
         checkin_code = #{checkinCode,jdbcType=VARCHAR},
       </if>
       <if test="orderTime != null">
-        order_time = #{orderTime,jdbcType=DATE},
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
       </if>
       <if test="checkinTime != null">
-        checkin_time = #{checkinTime,jdbcType=DATE},
+        checkin_time = #{checkinTime,jdbcType=TIMESTAMP},
       </if>
       <if test="completeTime != null">
-        complete_time = #{completeTime,jdbcType=DATE},
+        complete_time = #{completeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="roderState != null">
         roder_state = #{roderState,jdbcType=INTEGER},
@@ -375,9 +375,9 @@
       user_phine = #{userPhine,jdbcType=VARCHAR},
       user_sex = #{userSex,jdbcType=VARCHAR},
       checkin_code = #{checkinCode,jdbcType=VARCHAR},
-      order_time = #{orderTime,jdbcType=DATE},
-      checkin_time = #{checkinTime,jdbcType=DATE},
-      complete_time = #{completeTime,jdbcType=DATE},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      checkin_time = #{checkinTime,jdbcType=TIMESTAMP},
+      complete_time = #{completeTime,jdbcType=TIMESTAMP},
       roder_state = #{roderState,jdbcType=INTEGER},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR}

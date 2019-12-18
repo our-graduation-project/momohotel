@@ -7,6 +7,7 @@
     <result column="earnest" jdbcType="DOUBLE" property="earnest" />
     <result column="order_id" jdbcType="INTEGER" property="orderId" />
     <result column="hotele_id" jdbcType="INTEGER" property="hoteleId" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
     <result column="remark2" jdbcType="VARCHAR" property="remark2" />
   </resultMap>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    payment_id, payment_no, earnest, order_id, hotele_id, remark1, remark2
+    payment_id, payment_no, earnest, order_id, hotele_id, payment_time, remark1, remark2
   </sql>
   <select id="selectByExample" parameterType="com.xqr.momohotel.model.PaymentsExample" resultMap="BaseResultMap">
     select
@@ -106,11 +107,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into payments (payment_no, earnest, order_id, 
-      hotele_id, remark1, remark2
-      )
+      hotele_id, payment_time, remark1, 
+      remark2)
     values (#{paymentNo,jdbcType=VARCHAR}, #{earnest,jdbcType=DOUBLE}, #{orderId,jdbcType=INTEGER}, 
-      #{hoteleId,jdbcType=INTEGER}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}
-      )
+      #{hoteleId,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.Payments">
     <selectKey keyProperty="paymentId" order="AFTER" resultType="java.lang.Integer">
@@ -129,6 +130,9 @@
       </if>
       <if test="hoteleId != null">
         hotele_id,
+      </if>
+      <if test="paymentTime != null">
+        payment_time,
       </if>
       <if test="remark1 != null">
         remark1,
@@ -149,6 +153,9 @@
       </if>
       <if test="hoteleId != null">
         #{hoteleId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTime != null">
+        #{paymentTime,jdbcType=TIMESTAMP},
       </if>
       <if test="remark1 != null">
         #{remark1,jdbcType=VARCHAR},
@@ -182,6 +189,9 @@
       <if test="record.hoteleId != null">
         hotele_id = #{record.hoteleId,jdbcType=INTEGER},
       </if>
+      <if test="record.paymentTime != null">
+        payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.remark1 != null">
         remark1 = #{record.remark1,jdbcType=VARCHAR},
       </if>
@@ -200,6 +210,7 @@
       earnest = #{record.earnest,jdbcType=DOUBLE},
       order_id = #{record.orderId,jdbcType=INTEGER},
       hotele_id = #{record.hoteleId,jdbcType=INTEGER},
+      payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -221,6 +232,9 @@
       <if test="hoteleId != null">
         hotele_id = #{hoteleId,jdbcType=INTEGER},
       </if>
+      <if test="paymentTime != null">
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="remark1 != null">
         remark1 = #{remark1,jdbcType=VARCHAR},
       </if>
@@ -236,6 +250,7 @@
       earnest = #{earnest,jdbcType=DOUBLE},
       order_id = #{orderId,jdbcType=INTEGER},
       hotele_id = #{hoteleId,jdbcType=INTEGER},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
       remark1 = #{remark1,jdbcType=VARCHAR},
       remark2 = #{remark2,jdbcType=VARCHAR}
     where payment_id = #{paymentId,jdbcType=INTEGER}

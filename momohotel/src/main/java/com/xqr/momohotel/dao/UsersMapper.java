@@ -1,6 +1,5 @@
 package com.xqr.momohotel.dao;
 
-
 import com.xqr.momohotel.model.Users;
 import com.xqr.momohotel.model.UsersExample;
 import org.apache.ibatis.annotations.Mapper;
