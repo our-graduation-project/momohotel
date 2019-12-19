@@ -3,10 +3,11 @@ package com.xqr.momohotel.dao;
 
 import com.xqr.momohotel.model.RoomNo;
 import com.xqr.momohotel.model.RoomNoExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface RoomNoMapper {
     long countByExample(RoomNoExample example);
 

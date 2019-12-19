@@ -3,10 +3,11 @@ package com.xqr.momohotel.dao;
 
 import com.xqr.momohotel.model.Orders;
 import com.xqr.momohotel.model.OrdersExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface OrdersMapper {
     long countByExample(OrdersExample example);
 
