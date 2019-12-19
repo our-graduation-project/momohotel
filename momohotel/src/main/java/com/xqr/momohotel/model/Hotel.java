@@ -4,6 +4,38 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Hotel implements Serializable {
+    public Hotel() {
+    }
+
+    public Hotel(Integer hotelId, String hotelNo, String hotelName) {
+        this.hotelId = hotelId;
+        this.hotelNo = hotelNo;
+        this.hotelName = hotelName;
+    }
+
+    public Hotel(Integer hotelId, String hotelNo, String hotelName, String hotelPic, Integer regionId, String hotelData, String hotelAddress, Integer roomNumber, Integer parkinglot, Integer wifi, Integer wake, Integer deposit, Integer restaurant, Integer lift, Date time, Date timeAgree, String businessLicense, String legalPerson, String legalPersonIdcard, String cardPic) {
+        this.hotelId = hotelId;
+        this.hotelNo = hotelNo;
+        this.hotelName = hotelName;
+        this.hotelPic = hotelPic;
+        this.regionId = regionId;
+        this.hotelData = hotelData;
+        this.hotelAddress = hotelAddress;
+        this.roomNumber = roomNumber;
+        this.parkinglot = parkinglot;
+        this.wifi = wifi;
+        this.wake = wake;
+        this.deposit = deposit;
+        this.restaurant = restaurant;
+        this.lift = lift;
+        this.time = time;
+        this.timeAgree = timeAgree;
+        this.businessLicense = businessLicense;
+        this.legalPerson = legalPerson;
+        this.legalPersonIdcard = legalPersonIdcard;
+        this.cardPic = cardPic;
+    }
+
     private Integer hotelId;
 
     private String hotelNo;
