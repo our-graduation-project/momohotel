@@ -14,6 +14,8 @@ public class Orders implements Serializable {
 
     private String roomName;
 
+    private Integer roomId;
+
     private String roomNumber;
 
     private Double earnest;
@@ -78,6 +80,14 @@ public class Orders implements Serializable {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
     }
 
     public String getRoomNumber() {
@@ -187,6 +197,7 @@ public class Orders implements Serializable {
         sb.append(", hoteleId=").append(hoteleId);
         sb.append(", hotelName=").append(hotelName);
         sb.append(", roomName=").append(roomName);
+        sb.append(", roomId=").append(roomId);
         sb.append(", roomNumber=").append(roomNumber);
         sb.append(", earnest=").append(earnest);
         sb.append(", userName=").append(userName);

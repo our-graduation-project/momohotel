@@ -104,6 +104,66 @@ public class RoomNoExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
+        public Criteria andHoteleIdIsNull() {
+            addCriterion("hotele_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdIsNotNull() {
+            addCriterion("hotele_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdEqualTo(Integer value) {
+            addCriterion("hotele_id =", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdNotEqualTo(Integer value) {
+            addCriterion("hotele_id <>", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdGreaterThan(Integer value) {
+            addCriterion("hotele_id >", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("hotele_id >=", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdLessThan(Integer value) {
+            addCriterion("hotele_id <", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("hotele_id <=", value, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdIn(List<Integer> values) {
+            addCriterion("hotele_id in", values, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdNotIn(List<Integer> values) {
+            addCriterion("hotele_id not in", values, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdBetween(Integer value1, Integer value2) {
+            addCriterion("hotele_id between", value1, value2, "hoteleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHoteleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("hotele_id not between", value1, value2, "hoteleId");
+            return (Criteria) this;
+        }
+
         public Criteria andRoomIdIsNull() {
             addCriterion("room_id is null");
             return (Criteria) this;

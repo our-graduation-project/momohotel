@@ -3,6 +3,8 @@ package com.xqr.momohotel.model;
 import java.io.Serializable;
 
 public class RoomNo implements Serializable {
+    private Integer hoteleId;
+
     private Integer roomId;
 
     private String roomNumber;
@@ -12,6 +14,14 @@ public class RoomNo implements Serializable {
     private String remark2;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getHoteleId() {
+        return hoteleId;
+    }
+
+    public void setHoteleId(Integer hoteleId) {
+        this.hoteleId = hoteleId;
+    }
 
     public Integer getRoomId() {
         return roomId;
@@ -51,6 +61,7 @@ public class RoomNo implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", hoteleId=").append(hoteleId);
         sb.append(", roomId=").append(roomId);
         sb.append(", roomNumber=").append(roomNumber);
         sb.append(", remark1=").append(remark1);

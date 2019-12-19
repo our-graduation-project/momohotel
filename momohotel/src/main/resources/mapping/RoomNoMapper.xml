@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xqr.momohotel.dao.RoomNoMapper">
   <resultMap id="BaseResultMap" type="com.xqr.momohotel.model.RoomNo">
+    <result column="hotele_id" jdbcType="INTEGER" property="hoteleId" />
     <result column="room_id" jdbcType="INTEGER" property="roomId" />
     <result column="room_number" jdbcType="VARCHAR" property="roomNumber" />
     <result column="remark1" jdbcType="VARCHAR" property="remark1" />
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    room_id, room_number, remark1, remark2
+    hotele_id, room_id, room_number, remark1, remark2
   </sql>
   <select id="selectByExample" parameterType="com.xqr.momohotel.model.RoomNoExample" resultMap="BaseResultMap">
     select
@@ -89,14 +90,17 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xqr.momohotel.model.RoomNo">
-    insert into room_no (room_id, room_number, remark1, 
-      remark2)
-    values (#{roomId,jdbcType=INTEGER}, #{roomNumber,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR}, 
-      #{remark2,jdbcType=VARCHAR})
+    insert into room_no (hotele_id, room_id, room_number, 
+      remark1, remark2)
+    values (#{hoteleId,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}, #{roomNumber,jdbcType=VARCHAR}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.xqr.momohotel.model.RoomNo">
     insert into room_no
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hoteleId != null">
+        hotele_id,
+      </if>
       <if test="roomId != null">
         room_id,
       </if>
@@ -111,6 +115,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hoteleId != null">
+        #{hoteleId,jdbcType=INTEGER},
+      </if>
       <if test="roomId != null">
         #{roomId,jdbcType=INTEGER},
       </if>
@@ -134,6 +141,9 @@
   <update id="updateByExampleSelective" parameterType="map">
     update room_no
     <set>
+      <if test="record.hoteleId != null">
+        hotele_id = #{record.hoteleId,jdbcType=INTEGER},
+      </if>
       <if test="record.roomId != null">
         room_id = #{record.roomId,jdbcType=INTEGER},
       </if>
@@ -153,7 +163,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update room_no
-    set room_id = #{record.roomId,jdbcType=INTEGER},
+    set hotele_id = #{record.hoteleId,jdbcType=INTEGER},
+      room_id = #{record.roomId,jdbcType=INTEGER},
       room_number = #{record.roomNumber,jdbcType=VARCHAR},
       remark1 = #{record.remark1,jdbcType=VARCHAR},
       remark2 = #{record.remark2,jdbcType=VARCHAR}
