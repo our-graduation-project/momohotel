@@ -3,6 +3,7 @@ package com.xqr.momohotel.dao;
 
 import com.xqr.momohotel.model.RoomNo;
 import com.xqr.momohotel.model.RoomNoExample;
+import com.xqr.momohotel.model.Rooms;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,4 +23,5 @@ public interface RoomNoMapper {
     int updateByExampleSelective(@Param("record") RoomNo record, @Param("example") RoomNoExample example);
 
     int updateByExample(@Param("record") RoomNo record, @Param("example") RoomNoExample example);
+
 }

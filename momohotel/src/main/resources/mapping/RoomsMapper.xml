@@ -477,4 +477,15 @@
       remark2 = #{remark2,jdbcType=VARCHAR}
     where room_id = #{roomId,jdbcType=INTEGER}
   </update>
+
+
+
+
+  <select id="selectRoomsByRoomNum" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    r.room_id,r.room_no,r.hotele_id,r.room_name,r.room_type,r.room_earnest,r.discount,r.actual_earnest,r.introduce,r.room_pic,
+    r.bed_number,r.people_num,r.room_area,r.breakfast,r.wifi,r.room_window,r.big_bed,r.room_num,r.free_room,r.room_time
+    from  rooms r,room_no rn
+    where rn.room_id=r.room_id and room_number=#{roomNum}
+  </select>
 </mapper>

@@ -30,4 +30,11 @@ public interface RoomsMapper {
     int updateByPrimaryKeySelective(Rooms record);
 
     int updateByPrimaryKey(Rooms record);
+
+    /**
+     * 根据房间号查询房间信息
+     * @param roomNum
+     * @return
+     */
+    Rooms selectRoomsByRoomNum(String roomNum);
 }
