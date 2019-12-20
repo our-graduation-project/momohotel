@@ -22,6 +22,17 @@ public class Payments implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public Payments() {
+    }
+
+    public Payments( String paymentNo, Double earnest, Integer orderId, Integer hoteleId, Date paymentTime) {
+        this.paymentNo = paymentNo;
+        this.earnest = earnest;
+        this.orderId = orderId;
+        this.hoteleId = hoteleId;
+        this.paymentTime = paymentTime;
+    }
+
     public Integer getPaymentId() {
         return paymentId;
     }

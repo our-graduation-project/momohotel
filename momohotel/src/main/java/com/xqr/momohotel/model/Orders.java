@@ -42,6 +42,27 @@ public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public Orders() {
+    }
+
+    public Orders(String orderNo, Integer hoteleId, String hotelName, String roomName, Integer roomId, String roomNumber, Double earnest, String userName, String userPhine, String userSex, String checkinCode, Date orderTime, Date checkinTime, Date completeTime, Integer roderState) {
+        this.orderNo = orderNo;
+        this.hoteleId = hoteleId;
+        this.hotelName = hotelName;
+        this.roomName = roomName;
+        this.roomId = roomId;
+        this.roomNumber = roomNumber;
+        this.earnest = earnest;
+        this.userName = userName;
+        this.userPhine = userPhine;
+        this.userSex = userSex;
+        this.checkinCode = checkinCode;
+        this.orderTime = orderTime;
+        this.checkinTime = checkinTime;
+        this.completeTime = completeTime;
+        this.roderState = roderState;
+    }
+
     public Integer getOrderId() {
         return orderId;
     }

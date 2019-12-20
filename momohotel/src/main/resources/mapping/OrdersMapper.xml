@@ -413,4 +413,22 @@
       remark2 = #{remark2,jdbcType=VARCHAR}
     where order_id = #{orderId,jdbcType=INTEGER}
   </update>
+
+
+    <!--自己写的连表查询,查询该房间有多少间被预订了-->
+    <select id="selectFreeRoomNum" resultType="java.util.Map" parameterType="java.util.Map">
+--
+      select room_id roomId,count(room_id) num
+      FROM orders where hotele_id = #{hotelId}
+      and (
+      (checkin_time <![CDATA[ < ]]> #{endDate} and checkin_time > #{beginDate})
+      or
+      (complete_time <![CDATA[ < ]]> #{endDate}  and complete_time > #{beginDate})
+      or
+      (complete_time <![CDATA[ > ]]> #{endDate} and checkin_time <![CDATA[ < ]]> #{beginDate})
+      )
+      group by room_id
+    </select>
+
+
 </mapper>

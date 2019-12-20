@@ -6,7 +6,10 @@ import com.xqr.momohotel.model.OrdersExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface OrdersMapper {
     long countByExample(OrdersExample example);
@@ -30,4 +33,6 @@ public interface OrdersMapper {
     int updateByPrimaryKeySelective(Orders record);
 
     int updateByPrimaryKey(Orders record);
+
+    List<Map<String,Object>> selectFreeRoomNum(Map map);
 }

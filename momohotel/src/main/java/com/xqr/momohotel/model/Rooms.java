@@ -50,6 +50,29 @@ public class Rooms implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
+    public Rooms() {
+    }
+
+    public Rooms(String roomNo, Integer hoteleId, String roomName, String roomType, Double roomEarnest, Double actualEarnest, String introduce, Integer bedNumber, Integer peopleNum, Double roomArea, Integer breakfast, Integer wifi, Integer roomWindow, Integer bigBed, Integer roomNum, Date roomTime) {
+        this.roomNo = roomNo;
+        this.hoteleId = hoteleId;
+        this.roomName = roomName;
+        this.roomType = roomType;
+        this.roomEarnest = roomEarnest;
+        this.actualEarnest = actualEarnest;
+        this.introduce = introduce;
+        this.bedNumber = bedNumber;
+        this.peopleNum = peopleNum;
+        this.roomArea = roomArea;
+        this.breakfast = breakfast;
+        this.wifi = wifi;
+        this.roomWindow = roomWindow;
+        this.bigBed = bigBed;
+        this.roomNum = roomNum;
+        this.roomTime = roomTime;
+    }
+
     public Integer getRoomId() {
         return roomId;
     }
